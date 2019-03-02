@@ -7,7 +7,7 @@ The challenge is to build an ​Imgur​ image uploading service that exposes a 
 
 To clone this project on your machine run this on your terminal:
 ```bash
-git@github.com:ianshiundu/robovoice-tech-challenge.git
+git clone git@github.com:ianshiundu/robovoice-tech-challenge.git
 ```
 
 You need to download and install sbt for this application to run.
