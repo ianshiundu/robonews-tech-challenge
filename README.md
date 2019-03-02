@@ -30,7 +30,10 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
-	"urls": "https://cdn1.carbuyer.co.uk/sites/carbuyer_d7/files/styles/16x9_720/public/2018/12/skoda-scala-front.jpg?itok=xj_WPkDb"
+	"urls": [
+            "https://farm3.staticflickr.com/2879/11234651086_681b3c2c00_b_d.jpg",
+            "https://farm4.staticflickr.com/3790/11244125445_3c2f32cd83_k_d.jpg"
+        ]
 }'
 ```
 and get a Response like so:
@@ -38,6 +41,11 @@ and get a Response like so:
 {
     "jobId": "84e10410-26f9-43c3-adab-381ab446691f"
 }
+```
+
+The images will be downloaded at: 
+```bash
+src/test/test/resource
 ```
 
 ### Testing
