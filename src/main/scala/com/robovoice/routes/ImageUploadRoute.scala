@@ -19,8 +19,8 @@ class ImageUploadRoute(imService: ImageUploadService)(implicit ec: ExecutionCont
       post {
         pathEndOrSingleSlash {
           withRequestTimeout(5 minutes) {
-            entity(as[ImgurPostRequest]){ request ⇒
-              complete(imService.uploadImage(request.urls, WSClient))
+            entity(as[ImgurApiRequest]){ request ⇒
+              complete(imService.uploadImage2(request.urls, WSClient))
             }
           }
         }
