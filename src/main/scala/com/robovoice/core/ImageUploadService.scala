@@ -29,20 +29,7 @@ class ImageUploadService()(implicit mat: Materializer) extends Config with JsonP
     os.close()
   }
 
-  def uploadImage(imageUrl: String, wsClient: StandaloneWSClient)(implicit ec: ExecutionContext):
-  Future[Either[ImgurErrorResponse, JobResponseMessage]] = {
-    val destinationFile: String = s"src/test/resources/images/upload.jpg"
-    downloadImage(imageUrl, destinationFile)
-    val file = new File(destinationFile)
-    wsClient.url(imgurUrl).addHttpHeaders("Authorization" -> imgurClientId).post(file).map { response ⇒
-      if (response.status >= 400) // application level error
-        Left(response.body[JsValue].as[ImgurErrorResponse])
-      else // application level good response
-        Right(JobResponseMessage(UUID.randomUUID().toString))
-    }
-  }
-
-  def uploadImage2(imageUrl: List[String], wsClient: StandaloneWSClient)(implicit ec: ExecutionContext):
+  def uploadImage(imageUrl: List[String], wsClient: StandaloneWSClient)(implicit ec: ExecutionContext):
   Future[Either[ImgurErrorResponse, JobResponseMessage]] = {
     var count = 0
     val destinationFile: String = s"src/test/resources/images/upload${1}.jpg"

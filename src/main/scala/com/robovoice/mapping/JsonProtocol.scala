@@ -5,10 +5,9 @@ import de.heikoseeberger.akkahttpplayjson._
 import play.api.libs.json._
 
 trait JsonProtocol extends PlayJsonSupport {
-  implicit val urlFormat: OFormat[ImgurApiRequest] = Json.format[ImgurApiRequest]
+  implicit val urlFormat: OFormat[ImageUploadMessage] = Json.format[ImageUploadMessage]
   implicit val imgurErrorFormat: OFormat[ErrorResponse] = Json.format[ErrorResponse]
   implicit val imgurErrorResponseFormat: OFormat[ImgurErrorResponse] = Json.format[ImgurErrorResponse]
 
   implicit val jobFormat: OFormat[JobResponseMessage] = Json.format[JobResponseMessage]
-  implicit val imgurPostRequestFormat: OFormat[ImgurPostRequest] = Json.format[ImgurPostRequest]
 }

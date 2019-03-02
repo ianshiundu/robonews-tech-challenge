@@ -5,7 +5,7 @@ import akka.http.scaladsl.server._
 import akka.stream.Materializer
 import com.robovoice.core.ImageUploadService
 import com.robovoice.mapping.JsonProtocol
-import com.robovoice.messages.{ImgurApiRequest, ImgurPostRequest}
+import com.robovoice.messages.ImageUploadMessage
 import play.api.libs.ws.ahc.StandaloneAhcWSClient
 
 import scala.concurrent.ExecutionContext
@@ -19,8 +19,8 @@ class ImageUploadRoute(imService: ImageUploadService)(implicit ec: ExecutionCont
       post {
         pathEndOrSingleSlash {
           withRequestTimeout(5 minutes) {
-            entity(as[ImgurApiRequest]){ request ⇒
-              complete(imService.uploadImage2(request.urls, WSClient))
+            entity(as[ImageUploadMessage]){ request ⇒
+              complete(imService.uploadImage(request.urls, WSClient))
             }
           }
         }
