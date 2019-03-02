@@ -12,7 +12,7 @@ git clone git@github.com:ianshiundu/robovoice-tech-challenge.git
 
 You need to download and install sbt for this application to run.
 
-Once you have sbt installed, running the following at the command prompt will start up Play in development mode:
+Once you have sbt installed, running the following at the command prompt will start up Akka HTTP in development mode:
 
 ```bash
 sbt run
