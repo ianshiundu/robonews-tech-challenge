@@ -17,8 +17,13 @@ Once you have sbt installed, running the following at the command prompt will st
 ```bash
 sbt run
 ```
-
 Akka will start up on the HTTP port at <http://localhost:5000/>.   You don't need to deploy or reload anything.
+
+You can also run the app using docker, by running:
+```bash
+docker run -p 8000:5000 dockerised-robovoice-challenge:0.2
+```
+Your dockerised app will be running on port  <http://localhost:8000/>
 
 ### Usage
 To upload an image to Imgur, you make a POST request with the `Content-Type` specified to `application/json`.
