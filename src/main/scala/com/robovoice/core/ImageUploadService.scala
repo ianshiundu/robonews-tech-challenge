@@ -12,7 +12,6 @@ import play.api.libs.json.JsValue
 import play.api.libs.ws.DefaultBodyWritables._
 import play.api.libs.ws.JsonBodyReadables._
 import play.api.libs.ws.StandaloneWSClient
-import play.api.libs.ws.ahc.StandaloneAhcWSClient
 
 import scala.concurrent.{ExecutionContext, Future}
 class ImageUploadService()(implicit mat: Materializer) extends Config with JsonProtocol {
