@@ -16,7 +16,6 @@ import play.api.libs.ws.ahc.StandaloneAhcWSClient
 
 import scala.concurrent.{ExecutionContext, Future}
 class ImageUploadService()(implicit mat: Materializer) extends Config with JsonProtocol {
-  val wsClient = StandaloneAhcWSClient()
 
   def downloadImage(imageUrl: String, destinationFile: String): Unit = {
     val url: URL = new URL(imageUrl)

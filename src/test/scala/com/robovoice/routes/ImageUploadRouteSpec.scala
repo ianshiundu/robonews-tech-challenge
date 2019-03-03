@@ -6,7 +6,6 @@ import akka.http.scaladsl.testkit.ScalatestRouteTest
 import com.robovoice.core.ImageUploadService
 import com.robovoice.messages.ImageUploadMessage
 import org.scalatest.{Matchers, WordSpec}
-import play.api.test.WsTestClient
 
 class ImageUploadRouteSpec extends WordSpec with Matchers with ScalatestRouteTest {
   "Upload Image to Imgur" when {
