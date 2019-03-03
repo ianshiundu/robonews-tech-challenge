@@ -21,7 +21,7 @@ Akka will start up on the HTTP port at <http://localhost:5000/>.   You don't nee
 
 You can also run the app using docker, by running:
 ```bash
-docker run -p 8000:5000 dockerised-robovoice-challenge:0.2
+sbt docker:publishLocal && docker run -p 8000:5000 dockerised-robovoice-challenge:0.2
 ```
 Your dockerised app will be running on port  <http://localhost:8000/>
 
