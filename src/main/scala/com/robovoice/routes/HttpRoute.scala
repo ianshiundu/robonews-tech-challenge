@@ -7,11 +7,11 @@ import com.robovoice.core.ImageUploadService
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
-class HttpRoute(serv: ImageUploadService)(implicit actmat: ActorMaterializer) {
+class HttpRoute(imageService: ImageUploadService)(implicit actmat: ActorMaterializer) {
   val service = "images"
   val version = "v1"
 
-  val imageUploadRoute = new ImageUploadRoute(serv)
+  val imageUploadRoute = new ImageUploadRoute(imageService)
 
   val route: Route =
     pathPrefix(version / service) {

@@ -7,9 +7,6 @@ import akka.stream.ActorMaterializer
 import com.robovoice.core.ImageUploadService
 import com.robovoice.routes.HttpRoute
 import com.robovoice.utils.Config
-//import play.api.libs.ws.ahc.StandaloneAhcWSClient
-//import play.libs.ws.ahc.StandaloneAhcWSClient
-//import play.libs.ws.StandaloneWSClient
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.util.{Failure, Success}
@@ -22,12 +19,10 @@ object ServiceMain extends App with Config {
   implicit val ec: ExecutionContextExecutor = system.dispatcher
   implicit val materializer: ActorMaterializer = ActorMaterializer()
   val log = Logging(system.eventStream, "robovoice")
-//  import play.api.libs.ws.StandaloneWSClient
 
-//  val ws = StandaloneAhcWSClient
-  val serv = new ImageUploadService()
+  val imageService = new ImageUploadService()
 
-  val httpRoute = new HttpRoute(serv).route
+  val httpRoute = new HttpRoute(imageService).route
 
   val bindingFuture = Http().bindAndHandle(httpRoute, httpInterface, httpPort)
 

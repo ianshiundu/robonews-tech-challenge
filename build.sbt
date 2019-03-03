@@ -30,7 +30,8 @@ lazy val root = (project in file(".")).
       "com.typesafe.play" %% "play-ahc-ws-standalone"         % "2.0.1",
       "com.typesafe.play" %% "play"                           % "2.7.0",
 
-
+      "org.mockito"         % "mockito-all"         % "1.9.5"         % Test,
+      "com.typesafe.play" %% "play-test"            % "2.7.0"         % Test,
       "com.typesafe.akka" %% "akka-http-testkit"    % akkaHttpVersion % Test,
       "com.typesafe.akka" %% "akka-testkit"         % akkaVersion     % Test,
       "com.typesafe.akka" %% "akka-stream-testkit"  % akkaVersion     % Test,
