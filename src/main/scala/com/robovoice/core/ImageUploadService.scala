@@ -34,7 +34,7 @@ class ImageUploadService()(implicit mat: Materializer) extends Config with JsonP
     var count = 0
     val tempDir = System.getProperty("java.io.tmpdir")
     val destinationFile: String = s"$tempDir/upload${1}.jpg"
-    imageUrl.distinct.foreach(u ⇒ downloadImage(u, s"$tempDir/upload${count += 1; count}.jpg"))
+    imageUrl.distinct.foreach(url ⇒ downloadImage(url, s"$tempDir/upload${count += 1; count}.jpg"))
     val file = new File(destinationFile)
     wsClient.url(imgurUrl).addHttpHeaders("Authorization" -> imgurClientId).post(file).map { response ⇒
       if (response.status >= 400) // application level error
