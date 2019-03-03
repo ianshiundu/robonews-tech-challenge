@@ -1,8 +1,13 @@
+enablePlugins(JavaAppPackaging, AshScriptPlugin)
+
 name := "robovoice_challenge"
 
-version := "0.1"
+version := "0.2"
 
 scalaVersion := "2.12.8"
+
+dockerBaseImage := "openjdk:8-jre-alpine"
+packageName in Docker := "dockerised-robovoice-challenge"
 
 lazy val akkaHttpVersion = "10.1.7"
 lazy val akkaVersion    = "2.5.20"
