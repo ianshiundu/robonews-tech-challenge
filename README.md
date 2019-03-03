@@ -48,11 +48,6 @@ and get a Response like so:
 }
 ```
 
-The images will be downloaded at: 
-```bash
-src/test/test/resource
-```
-
 ### Testing
 
 To run the tests use the following command:
