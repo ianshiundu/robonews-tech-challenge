@@ -8,6 +8,7 @@ import akka.stream.Materializer
 import com.robovoice.mapping.JsonProtocol
 import com.robovoice.messages._
 import com.robovoice.utils.Config
+import org.slf4j.{Logger, LoggerFactory}
 import play.api.libs.json.JsValue
 import play.api.libs.ws.DefaultBodyWritables._
 import play.api.libs.ws.JsonBodyReadables._
@@ -15,6 +16,7 @@ import play.api.libs.ws.StandaloneWSClient
 
 import scala.concurrent.{ExecutionContext, Future}
 class ImageUploadService()(implicit mat: Materializer) extends Config with JsonProtocol {
+  private final val logger: Logger = LoggerFactory.getLogger(this.getClass)
 
   def downloadImage(imageUrl: String, destinationFile: String): Unit = {
     val url: URL = new URL(imageUrl)
@@ -32,6 +34,7 @@ class ImageUploadService()(implicit mat: Materializer) extends Config with JsonP
     var count = 0
     val tempDir = System.getProperty("java.io.tmpdir")
     val destinationFile: String = s"$tempDir/upload${1}.jpg"
+    logger.info(s"Images stored at: $tempDir")
     imageUrl.distinct.foreach(url ⇒ downloadImage(url, s"$tempDir/upload${count += 1; count}.jpg"))
     val file = new File(destinationFile)
     wsClient.url(imgurUrl).addHttpHeaders("Authorization" -> imgurClientId).post(file).map { response ⇒

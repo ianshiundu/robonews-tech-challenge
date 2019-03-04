@@ -29,6 +29,7 @@ lazy val root = (project in file(".")).
       "de.heikoseeberger" %% "akka-http-play-json"            % "1.25.2",
       "com.typesafe.play" %% "play-ahc-ws-standalone"         % "2.0.1",
       "com.typesafe.play" %% "play"                           % "2.7.0",
+      "ch.qos.logback"    %  "logback-classic" % "1.2.3",
 
       "org.mockito"         % "mockito-all"         % "1.9.5"         % Test,
       "com.typesafe.play" %% "play-test"            % "2.7.0"         % Test,
